@@ -1,0 +1,60 @@
+
+.actions{
+    .button{
+        margin-right: 1em;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+.button{
+    @include button-1;
+    padding: 8px 12px;
+    background-color: $primary;
+    border: 1px solid $primary;
+    color: $white-90;
+    a{
+        color: $white-90;
+    }
+
+    border-radius: 5px;
+
+    &:hover, &:focus{
+       background-color: darken($color: $primary, $amount: 3%); 
+    }
+    &:active{
+        background-color: darken($color: $primary, $amount: 5%); 
+    }
+    &:disabled{
+        background-color: $white-10;
+        color: $white-25;
+        a{
+            color: $white-25;
+
+        }
+    }
+}
+
+.button.empty{
+    background-color: transparent;
+    color: $white-90;
+    border: 1px solid $white-90;
+    border-radius: 5px;
+
+    a{
+        color: $white-90;
+    }
+
+    &:hover, &:active, &:focus{
+        border: 1px solid $white-75;
+     }
+
+    &:disabled{
+        background-color: $white-10;
+        color: $white-25;
+        a{
+            color: $white-25;
+
+        }
+    }
+}

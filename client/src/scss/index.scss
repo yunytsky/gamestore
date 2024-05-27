@@ -1,0 +1,638 @@
+//Reset
+@import "reset";
+//--------------------
+//Colors
+@import "colors";
+//--------------------
+//Typography
+@import "typography";
+//--------------------
+//Buttons
+@import "buttons";
+//--------------------
+//Forms
+@import "forms";
+//--------------------
+
+// @mixin scrollbar {
+//   scrollbar-width: thin;
+//   scrollbar-color: $black-25 $black-5; 
+
+//   &::-webkit-scrollbar{
+//      width: 4px;
+//   }
+//   &::-webkit-scrollbar-track {
+//      background-color: $black-5;
+//    }
+//    &::-webkit-scrollbar-thumb {
+//      background-color: $black-25;
+//    }
+// }
+//Styles
+html {
+  height: 100%;
+}
+body {
+  background-color: $bg-dark;
+  color: $white;
+  @include body-1;
+  overflow-x: hidden;
+  a, button{
+    color: $white;
+  }
+}
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.no-data{
+  color: $white-75;
+  @include body-2;
+  margin-bottom: 1em;
+}
+
+@keyframes slideIn {
+  0% {
+    right: -100%; /* Initially off-screen */
+  }
+  100% {
+    right: 0; /* Sliding in to right */
+  }
+}
+
+.error-message, .success-message{
+  position: fixed;
+  bottom: 0;
+  right: -50%;
+  background-color:rgba($color: $white-10, $alpha: .7);
+  padding: 1em 3.5em;
+  border-radius: 4px;
+  @include body-2;
+  color: $white-90;
+  animation: slideIn 1.5s .1s forwards; 
+
+  &::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.25em;
+    height: 100%;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+  }
+}
+
+.error-message{
+  span{
+    color: $red;
+  }
+  &::before{
+    background-color:rgba($color: $red, $alpha: .9);
+
+  }
+}
+
+.success-message{
+  span{
+    color: $green;
+  }
+  &::before{
+    background-color:rgba($color: $green, $alpha: .9);
+
+  }
+}
+
+//Header
+.header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  background-color: $bg-middle;
+  display: flex;
+  border: 1px solid black;
+  padding: .75em 1em;
+}
+
+.header-nav{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  @include link-2;
+}
+
+.header-cart{
+  display: flex;
+  align-items: center;
+  img{
+    margin-right: .5em;
+  }
+}
+
+.header-cart-items-amnt{
+  margin-left: .5em;
+  @include body-4;
+  background-color: $primary;
+  width: 1.35em;
+  height: 1.35em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+}
+
+.header-logo{
+  margin-right: 1.5em;
+}
+
+.header-nav-left, .header-nav-right{
+  display: flex;
+  align-items: center;
+  .header-nav-element{
+    color: $white-90;
+    margin-right: 1.5em;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
+
+
+
+
+.header-user-dropdown{
+  position: absolute;
+  background-color: $bg-light;
+  top: 3.5em;
+  right: .5em;
+  border-radius: 4px;
+  border: 1px solid $white-10;
+}
+
+.header-user-dropdown-option{
+  @include body-4;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 1em 2em;
+  img{
+    margin-right: .75em;
+  }
+
+  &:hover, &:active, &:focus{
+    background-color: $bg-middle;
+  }
+}
+//-----------------------
+//Game
+.game{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em 1em;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.game-title{
+  @include semibold;
+  margin-bottom: .5em;
+}
+
+.game-description{
+  @include body-1;
+  color: $white-75;
+  margin-bottom: 1em;
+}
+
+
+.game-genres, .game-released-date{
+  @include body-2;
+  color: $white-50;
+}
+
+.game-released-date{
+  margin-bottom: 1em;
+}
+
+.game-image{
+  width: 55em;
+  margin-right: 2em;
+  img{
+    border-radius: 8px;
+    width: 100%;
+  }
+}
+
+.game-price{
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 2em;
+}
+
+.game-price-discount{
+  margin-right: 1em;
+  background-color: $red;
+  @include body-4;
+  @include semibold;
+  border-radius: 3px;
+  padding: .25em .35em;
+}
+
+.game-price-old{
+  @include body-2;
+  text-decoration: line-through;
+  color: $white-50;
+  margin-right: .75em;
+}
+//-----------------------
+//Profile
+.profile{
+  padding: 2em 3em;
+  max-width: 1400px;
+}
+
+.profile-username{
+  display: flex;
+  align-items: center;
+  h3{
+    @include semibold;
+  }
+  img{
+    margin-right: .5em;
+  }
+  margin-bottom: .5em;
+}
+
+.profile-info{
+  display: flex;
+  margin-bottom: 2.5em;
+}
+
+
+.profile-balance, .profile-games{
+  span{
+    @include body-3;
+    margin-bottom: 1em;
+    color: $white-75;
+
+  }
+}
+
+.profile-games{
+  img{
+    margin-right: .2em;
+
+    width: 1.5em;
+  }
+  margin-right: 2em;
+}
+.profile-balance{
+  img{
+    margin-right: .2em;
+    width: 1em;
+  }
+}
+.profile-games-amount, .profile-balance-amount{
+  display: flex;
+  align-items: center;
+}
+
+.profile-button{
+  @include button-2;
+}
+//-----------------------
+//Error (Insufficient funds, 404)
+.error-page{
+  padding: 2em 3em;
+  max-width: 1400px;
+}
+
+.error-name{
+  display: flex;
+  margin-bottom: 3em;
+  img{
+    margin-right: .5em;
+  }
+  h3{
+    @include semibold;
+  }
+}
+
+.error-text{
+  @include body-3;
+  color: $white-90;
+  margin-bottom: 1.5em;
+}
+
+.error-button{
+  @include button-2;
+}
+//-----------------------
+//Successfull purchase
+.successfull-purchase{
+  padding: 2em 3em;
+  max-width: 1400px;
+  h3{
+    @include semibold;
+    margin-bottom: .5em;
+
+  }
+}
+
+.successfull-purchase-text{
+  @include body-3;
+  color: $white-90;
+  margin-bottom: 2.5em;
+}
+
+.successfull-purchase-button{
+  @include button-2;
+}
+//-----------------------
+//Purchase
+.purchase{
+  padding: 2em 3em;
+  max-width: 1400px;
+  h3{
+    @include semibold;
+    margin-bottom: .5em;
+
+  }
+}
+
+.purchase-details{
+  @include body-3;
+  color: $white-75;
+  margin-bottom: 2.5em;
+}
+
+.purchase-game{
+  display: flex;
+  margin-bottom: .75em;
+  width: 20vw;
+}
+
+.purchase-game-name{
+  margin-right: 2em;
+  flex: 1;
+}
+.purchase-text{
+  @include body-3;
+  margin-bottom: .5em;
+}
+
+.purchase-button{
+  @include button-2;
+}
+//-----------------------
+//Store, Library
+.store, .library{
+  padding: 2em 3em;
+  max-width: 1400px;
+  margin: 0 auto;
+  h3{
+    margin-bottom: 1em;
+    @include semibold;
+  }
+}
+.store-searchbar{
+  margin-bottom: 2em;
+  width: 20em;
+  position: relative;
+  input{
+    width: 100%;
+    @include body-3;
+    border-radius: 32px;
+    padding: .7em 2em .7em 1em;
+    background-color: $bg-light;
+    color: $white-75;
+    &::placeholder{
+      color: $white-25;
+    }
+  }
+
+  &::after{
+    content: "";
+    background-image: url("./assets/search.svg");
+    background-repeat: no-repeat;
+    z-index: 9;
+    width: .85em;
+    height: .85em;
+    background-size: .85em;
+    position: absolute;
+    right: .5em;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: $white-25-svg;
+
+  }
+}
+
+.store-games, .library-games{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.store-game, .library-game{
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 calc(33.333% - 2.75em);
+  background-color: $bg-light;
+  border-radius: 8px;
+  margin-right: 2.75em;
+  margin-bottom: 2.75em;
+  &:nth-child(3n){
+    margin-right: 0;
+  }
+  &:hover{
+    .store-game-image, .library-game-image{
+      filter: brightness(.85);
+    }
+  }
+}
+
+.store-game-image, .library-game-image{
+  max-width: 100%;
+  height: 290px;
+  position: relative;
+  .overlay{
+    background-color: rgba($color: $primary, $alpha: .05);
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  img{
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    object-fit: cover;
+  }
+}
+
+.store-game-info, .library-game-info{
+  margin-bottom: 1.5em;
+  padding: 1.5em 1em 0 1em;
+  flex: 1;
+}
+
+.store-game-price{
+  display: flex;
+  align-items: center;
+  @include body-1;
+  margin-bottom: 8px;
+}
+
+.store-game-price-discount{
+  margin-right: 1em;
+  background-color: $red;
+  @include body-5;
+  @include semibold;
+  border-radius: 3px;
+  padding: .25em
+}
+
+.store-game-price-old{
+  @include body-3;
+  text-decoration: line-through;
+  color: $white-50;
+  margin-right: .35em;
+}
+
+.store-game-name, .library-game-name{
+  @include semibold;
+  margin-bottom: 8px;
+}
+
+.store-game-released-date, .store-game-genres, .library-game-released-date, .library-game-genres{
+  color: $white-75;
+  @include body-3;
+}
+
+.store-game-actions{
+  padding: 0 1em;
+  margin-bottom: 1.5em;
+  .button{
+    margin-right: .75em;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+}
+
+.store-game-button{
+  @include button-2;
+}
+//-----------------------
+//Cart
+.cart{
+
+  padding: 2em 3em;
+  max-width: 1400px;
+  margin: 0 auto;
+  h3{
+    margin-bottom: 1em;
+    @include semibold;
+  }
+}
+.cart-items{
+  margin-bottom: 1.5em;
+}
+.cart-item{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid $white-5;
+  padding: 1em 0;
+}
+
+.cart-item-left, .cart-item-right{
+  display: flex;
+  align-items: center;
+}
+
+.cart-item-image{
+  margin-right: 1em;
+  width: 8em;
+  img{
+    width: 100%;
+  }
+}
+
+.cart-item-name{
+  @include semibold;
+  margin-bottom: 8px;
+}
+
+.cart-item-released-date, .cart-item-genres{
+  color: $white-75;
+  @include body-3;
+}
+
+.cart-item-price{
+  @include body-2;
+  margin-right: 1.25em;
+
+}
+
+.cart-item-delete-button{
+  display: flex;
+  align-items: center;
+}
+
+.cart-total-price{
+  margin-bottom: .5em;
+}
+
+.cart-button{
+  @include button-2;
+}
+//-----------------------
+//Form pages (login, add-funds)
+.login{
+  margin: 0 auto;
+  padding: 4em 3em;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  h3{
+    @include semibold;
+    margin-bottom: 1em;
+  }
+}
+
+.add-funds{
+  padding: 2em 3em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  h3{
+    @include semibold;
+    margin-bottom: 1em;
+  }
+
+  .button{
+    margin: 1em 0 0 0;
+    max-width: 8em;
+  }
+}
+
+//--------------------
+
+//--------------------
+
+
