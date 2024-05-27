@@ -12,6 +12,7 @@ import Library from "./views/Library";
 import AddFunds from "./views/AddFunds";
 import SuccessfullPurchase from "./views/SuccessfullPurchase";
 import Purchase from "./views/Purchase";
+import SuccessfullFunding from "./views/SuccessfullFunding";
 
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
           <Route path="add-funds" element={<AddFunds/>}/>
           <Route path="purchase" element={<Purchase/>}/>
           <Route path="successfull-purchase" element={<SuccessfullPurchase/>}/>
+          <Route path="successfull-funding" element={<SuccessfullFunding/>}/>
         </Route>
 
         <Route path="login" element={<Login/>}/>

@@ -106,3 +106,6 @@ export const buyGames = (config, data, userId) => {
   return instance.post(`/users/${userId}/cart/buy`, data, config);
 };
 
+export const addFunds = (config, data, userId) => {
+  return instance.patch(`/users/${userId}/balance/add`, data, config);
+};

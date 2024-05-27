@@ -334,7 +334,7 @@ body {
 }
 //-----------------------
 //Successfull purchase
-.successfull-purchase{
+.successfull-purchase, .successfull-funding{
   padding: 2em 3em;
   max-width: 1400px;
   h3{
@@ -344,13 +344,13 @@ body {
   }
 }
 
-.successfull-purchase-text{
+.successfull-purchase-text, .successfull-funding-text{
   @include body-3;
   color: $white-90;
   margin-bottom: 2.5em;
 }
 
-.successfull-purchase-button{
+.successfull-purchase-button, .successfull-funding-button{
   @include button-2;
 }
 //-----------------------
@@ -629,6 +629,17 @@ body {
     margin: 1em 0 0 0;
     max-width: 8em;
   }
+}
+
+.cvv, .expiry-date{
+  width: 100%;
+  .form-input{
+    width: 100%;
+  }
+}
+
+.expiry-date{
+  margin-right: 1em;
 }
 
 //--------------------

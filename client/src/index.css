@@ -256,6 +256,12 @@ h6 {
   background-color: #1F1E2D;
   border: 1px solid #2A2938;
 }
+.form-input::-moz-placeholder, .form-select::-moz-placeholder {
+  color: #4B4A57;
+}
+.form-input::placeholder, .form-select::placeholder {
+  color: #4B4A57;
+}
 
 .form-label {
   font-size: 0.875rem;
@@ -617,23 +623,23 @@ body a, body button {
   line-height: 1.2;
 }
 
-.successfull-purchase {
+.successfull-purchase, .successfull-funding {
   padding: 2em 3em;
   max-width: 1400px;
 }
-.successfull-purchase h3 {
+.successfull-purchase h3, .successfull-funding h3 {
   font-weight: 600;
   margin-bottom: 0.5em;
 }
 
-.successfull-purchase-text {
+.successfull-purchase-text, .successfull-funding-text {
   font-size: 0.875rem;
   line-height: 1.5;
   color: #DBDBDD;
   margin-bottom: 2.5em;
 }
 
-.successfull-purchase-button {
+.successfull-purchase-button, .successfull-funding-button {
   font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.2;
@@ -925,4 +931,15 @@ body a, body button {
 .add-funds .button {
   margin: 1em 0 0 0;
   max-width: 8em;
+}
+
+.cvv, .expiry-date {
+  width: 100%;
+}
+.cvv .form-input, .expiry-date .form-input {
+  width: 100%;
+}
+
+.expiry-date {
+  margin-right: 1em;
 }

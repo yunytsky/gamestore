@@ -63,8 +63,18 @@ passwordConfirmation: yup
 })
 
 export const addFundsSchema = yup.object().shape({
-  amount: yup.number().required("Required"),
-  cardNumber: yup.string().required("Required"),
-  expiryDate: yup.string().required("Required"),
-  cvv: yup.number().required("Required"),
+  amount: yup.number()
+    .required("Required")
+    .positive("Amount must be positive"),
+  cardNumber: yup.string()
+    .required("Required")
+    .matches(/^([245]\d{3} \d{4} \d{4} \d{4})$/,
+    "Card number must be 16 digits and start with either 2, 4, or 5"),
+  expiryDate: yup.string()
+    .required("Required")
+    .matches(/^(0[1-9]|1[0-2])\/\d{2}$/, "Expiry date must be in format MM/YY"),
+  cvv: yup
+    .string()
+    .matches(/^\d{3}$/, "CVV must be exactly 3 digits")
+    .required("Required"),
 });

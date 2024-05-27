@@ -43,7 +43,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
-            <Link className="profile-button button">
+            <Link className="profile-button button" to={"/add-funds"}>
                 Add funds
             </Link>
         </div>

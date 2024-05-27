@@ -29,6 +29,9 @@
         background-color: $white-5;
         border: 1px solid $white-10;
     }
+    &::placeholder{
+        color: $white-25
+    }
 }
 
 .form-label{
